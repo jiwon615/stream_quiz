@@ -12,9 +12,15 @@ public class Quiz5 {
 
     // 5.1 모든 문자열의 길이를 더한 결과를 출력하여라.
     public int quiz1() {
+        // 방법1 (mapToInt 활옹)
         int result = Arrays.stream(STRING_ARR)
                 .mapToInt(String::length)
                 .sum();
+
+        // 방법2
+        Integer  result2 = Arrays.stream(STRING_ARR)
+                .map(String::length)
+                .reduce(0, Integer::sum);
         return result;
     }
 
