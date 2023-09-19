@@ -13,6 +13,17 @@ class Quiz6Test {
     @DisplayName("6.1 stuArr에서 불합격(150점 미만)한 학생의 수를 남자(true)와 여자(false)로 구별하여라. (Boolean, List)")
     @Test
     void quiz1() {
+        /**
+         * {
+         * false=[[안지미, 여, 1학년 2반,  50점 ],
+         *     [황지미, 여, 1학년 3반, 100점 ],
+         *     [안지미, 여, 2학년 2반,  50점 ],
+         *     [황지미, 여, 2학년 3반, 100점 ]],
+     *     true=[[남자바, 남, 1학년 2반, 100점 ],
+         *     [남자바, 남, 2학년 2반, 100점 ]]
+     *     }
+         *
+         */
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
