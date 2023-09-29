@@ -5,7 +5,6 @@ import com.practice.stream.CSVUtil;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,6 +36,23 @@ public class Quiz1 {
     // 1.3 소개 내용에 '좋아'가 몇번 등장하는지 계산하여라.
     public int quiz3() throws IOException, CsvException {
         List<String[]> csvLines = CSVUtil.readCsvLines();
+        int count = 0;
+        Integer result = csvLines.stream()
+                .map(line -> line[2].replaceAll("\\s", ""))
+                .map(i -> getCount(i, 0))
+                .reduce(0, Integer::sum);
+        return result;
+    }
+
+    private int getCount(String line, int fromIndex) {
+        int idx = line.indexOf("좋아", fromIndex);
+
+        if (idx >= 0) {
+            return 1 + getCount(line, idx + "좋아".length());
+        }
+
         return 0;
     }
+
+
 }

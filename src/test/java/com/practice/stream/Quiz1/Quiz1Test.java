@@ -38,9 +38,10 @@ class Quiz1Test {
 //        assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
+    @DisplayName("1.3 소개 내용에 '좋아'가 몇번 등장하는지 계산하여라.")
     @Test
     void quiz3() throws IOException, CsvException {
-        assertThat(quiz.quiz3()).isEqualTo(answer.quiz3());
+        assertThat(quiz.quiz3()).isEqualTo(8);
     }
 
 }
