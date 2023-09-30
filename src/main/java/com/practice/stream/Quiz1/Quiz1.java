@@ -45,7 +45,7 @@ public class Quiz1 {
     }
 
     private int getCount(String line, int fromIndex) {
-        int idx = line.indexOf("좋아", fromIndex);
+        int idx = line.indexOf("좋아", fromIndex); // 못 찾으면 -1 반환
 
         if (idx >= 0) {
             return 1 + getCount(line, idx + "좋아".length());
