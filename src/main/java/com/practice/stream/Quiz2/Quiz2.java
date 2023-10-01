@@ -18,12 +18,13 @@ public class Quiz2 {
         return result;
     }
 
-    // 2.2 List에 저장된 단어들 중에서 단어의 길이가 2 이상인 경우에만, 모든 단어의 첫 글자를 대문자로 변환하여 스페이스로 구분한 하나의 문자열로 합한 결과를 반환하여라.
+    // 2.2 List에 저장된 단어들 중에서 단어의 길이가 2 이상인 경우에만, 모든 단어를 대문자로 변환하여 각 첫 글자만 스페이스로 구분한 하나의 문자열로 합한 결과를 반환하여라.
     // ex) ["Hello", "a", "Island", "b"] -> “H I”
     public String quiz2() {
         String result = WORDS.stream()
                 .filter(line -> line.length() > 1)
-                .map(line -> String.valueOf(line.charAt(0)).toUpperCase())
+                .map(String::toUpperCase)
+                .map(line -> String.valueOf(line.charAt(0)))
                 .collect(Collectors.joining(" "));
         return result;
     }
