@@ -1,8 +1,10 @@
 package com.practice.stream.Quiz6;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Quiz6 {
 
@@ -31,9 +33,12 @@ public class Quiz6 {
         };
     }
 
-    // 6.1 stuArr에서 불합격(150점 미만)한 학생의 수를 남자와 여자로 구별하여라. (Boolean, List)
+    // 6.1 stuArr에서 불합격(150점 미만)한 학생의 수를 남자(true)와 여자(false)로 구별하여라. (Boolean, List)
     public Map<Boolean, List<Student>> quiz1() {
-        return new HashMap<>();
+        Map<Boolean, List<Student>> result = Arrays.stream(stuArr)
+                .filter(i -> i.getScore() < 150)
+                .collect(Collectors.partitioningBy(Student::isMale));
+        return result;
     }
 
     // 6.2 각 반별 총점을 학년 별로 나누어 구하여라 (Map<Integer, Map<Integer, Integer>>)
