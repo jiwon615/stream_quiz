@@ -16,8 +16,10 @@ class Quiz6Test {
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
+    @DisplayName("6.2 각 반별 총점을 학년 별로 나누어 구하여라 (Map<Integer, Map<Integer, Integer>>)")
     @Test
     void quiz2() {
+        // 1={1=750, 2=300, 3=450}, 2={1=750, 2=300, 3=450}
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
