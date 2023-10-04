@@ -1,7 +1,6 @@
 package com.practice.stream.Quiz6;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,8 +44,8 @@ public class Quiz6 {
     public Map<Integer, Map<Integer, Integer>> quiz2() {
         Map<Integer, Map<Integer, Integer>> result = Arrays.stream(stuArr)
                 .collect(Collectors.groupingBy(
-                        Student::getHak,
-                        Collectors.groupingBy(Student::getBan, Collectors.summingInt(Student::getScore))
+                                Student::getHak,
+                                Collectors.groupingBy(Student::getBan, Collectors.summingInt(Student::getScore))
                         )
                 );
         return result;
