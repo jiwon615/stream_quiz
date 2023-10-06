@@ -22,7 +22,7 @@ public class Quiz3 {
         }
 
         // 방법2. Stream API 사용
-        return  numbers1.stream()
+        return numbers1.stream()
                 .flatMap(i -> numbers2.stream()
                         .map(j -> new Integer[]{i, j})
                 )
@@ -41,10 +41,17 @@ public class Quiz3 {
         }
 
         // 방법2. Stream API 사용
-        return numbers1.stream()
+        int ex1 = numbers1.stream()
                 .flatMap(
                         i -> numbers2.stream().map(j -> new Integer[]{i, j})
                 ).mapToInt(n -> n[0] * n[1])
+                .max()
+                .orElse(0);
+
+
+        // 방법3. Stream API 더 간단하게 flatMapToInt로 간략화
+        return numbers1.stream()
+                .flatMapToInt(i -> numbers2.stream().mapToInt(j -> i * j))
                 .max()
                 .orElse(0);
     }
