@@ -96,17 +96,26 @@ public class Quiz4 {
         Integer[] result = {list.get(0), list.get(list.size()-1)};
 
         // 방법 2 (reduce, min 활용)
-        Integer[] arr = new Integer[2];
-        arr[0] = transactions.stream()
+        Integer[] result2 = new Integer[2];
+        result2[0] = transactions.stream()
                 .map(Transaction::getValue)
                 .reduce(0, Integer::max);
 
-        arr[1] = transactions.stream()
+        result2[1] = transactions.stream()
                 .min(Comparator.comparing(Transaction::getValue))
                 .orElseThrow().getValue();
 
+        // 방법3 (mapToInt 활용)
+        Integer max = transactions.stream()
+                .map(Transaction::getValue)
+                .reduce(0, Integer::max);
 
-        return arr;
+        int min = transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .min()
+                .orElse(0);
+
+        return new Integer[]{max, min};
     }
 
 }

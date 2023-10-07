@@ -13,18 +13,26 @@ class Quiz4Test {
     @DisplayName("4.1 2020년에 일어난 모든 거래 내역을 찾아 거래값을 기준으로 오름차순 정렬하라.")
     @Test
     void quiz1() {
+        /**
+         * [{Trader:Hwan in Busan, year: 2020, value: 4900},
+         *     {Trader:Ming in Gyeonggi, year: 2020, value: 7100},
+         *     {Trader:Kyu in Seoul, year: 2020, value: 12000},
+         *     {Trader:Ming in Gyeonggi, year: 2020, value: 40000}]
+         */
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
     @DisplayName("4.2 거래 내역이 있는 거래자가 근무하는 모든 도시를 중복 없이 나열하라.")
     @Test
     void quiz2() {
+        // ["Seoul", "Gyeonggi", "Busan"]
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
     @DisplayName("4.3 서울에서 근무하는 모든 거래자를 찾아서 이름순서대로 정렬하라.")
     @Test
     void quiz3() {
+        // [Trader:Hyuk in Seoul, Trader:Kyu in Seoul]
         assertThat(quiz.quiz3()).isEqualTo(answer.quiz3());
     }
 
