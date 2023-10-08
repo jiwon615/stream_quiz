@@ -1,5 +1,6 @@
 package com.practice.stream.Quiz3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -12,12 +13,20 @@ public class Quiz3 {
     // 3.1 모든 숫자 쌍의 배열 리스트를 반환하여라.
     // ex) numbers1 = [1,2,3], numbers2 = [3,4] -> [(1,3), (1,4), (2,3), (2,4), (3,3), (3,4)]
     public List<Integer[]> quiz1() {
-        return Collections.emptyList();
+        // 방법1. 이중 포문 사용
+        List<Integer[]> list = new ArrayList<>();
+        for (int i=0; i<numbers1.size(); i++) {
+            for (int j=0; j<numbers2.size(); j++) {
+                list.add(new Integer[]{numbers1.get(i), numbers2.get(j)});
+            }
+        }
+        return list;
     }
 
     // 3.2 모든 숫자 쌍의 곱이 가장 큰 값을 반환하여라.
     // ex) numbers1 = [1,2,3], numbers2 = [3,4] -> 12
     public int quiz2() {
+
         return 0;
     }
 

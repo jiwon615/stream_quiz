@@ -1,5 +1,6 @@
 package com.practice.stream.Quiz3;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -12,6 +13,7 @@ class Quiz3Test {
     private final Answer3 answer = new Answer3();
     private final Quiz3 quiz = new Quiz3();
 
+    @DisplayName("3.1 모든 숫자 쌍의 배열 리스트를 반환하여라.")
     @Test
     void quiz1() {
         assertThat(isEquals(quiz.quiz1(), answer.quiz1())).isTrue();
