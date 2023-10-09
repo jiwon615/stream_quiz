@@ -26,8 +26,14 @@ public class Quiz3 {
     // 3.2 모든 숫자 쌍의 곱이 가장 큰 값을 반환하여라.
     // ex) numbers1 = [1,2,3], numbers2 = [3,4] -> 12
     public int quiz2() {
-
-        return 0;
+        // 방법1. 이중 포문 사용
+        int maxSum = 0;
+        for (int i=0; i<numbers1.size(); i++) {
+            for (int j=0; j<numbers2.size(); j++) {
+                maxSum = Math.max(numbers1.get(i) * numbers2.get(j), maxSum);
+            }
+        }
+        return maxSum;
     }
 
 }

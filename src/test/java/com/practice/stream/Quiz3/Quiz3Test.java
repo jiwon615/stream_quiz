@@ -19,6 +19,7 @@ class Quiz3Test {
         assertThat(isEquals(quiz.quiz1(), answer.quiz1())).isTrue();
     }
 
+    @DisplayName("3.2 모든 숫자 쌍의 곱이 가장 큰 값을 반환하여라.")
     @Test
     void quiz2() {
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
