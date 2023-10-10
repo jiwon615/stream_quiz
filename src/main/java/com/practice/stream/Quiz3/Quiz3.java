@@ -2,8 +2,8 @@ package com.practice.stream.Quiz3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Quiz3 {
 
@@ -15,12 +15,18 @@ public class Quiz3 {
     public List<Integer[]> quiz1() {
         // 방법1. 이중 포문 사용
         List<Integer[]> list = new ArrayList<>();
-        for (int i=0; i<numbers1.size(); i++) {
-            for (int j=0; j<numbers2.size(); j++) {
+        for (int i = 0; i < numbers1.size(); i++) {
+            for (int j = 0; j < numbers2.size(); j++) {
                 list.add(new Integer[]{numbers1.get(i), numbers2.get(j)});
             }
         }
-        return list;
+
+        // 방법2. Stream API 사용
+        return  numbers1.stream()
+                .flatMap(i -> numbers2.stream()
+                        .map(j -> new Integer[]{i, j})
+                )
+                .collect(Collectors.toList());
     }
 
     // 3.2 모든 숫자 쌍의 곱이 가장 큰 값을 반환하여라.
@@ -28,8 +34,8 @@ public class Quiz3 {
     public int quiz2() {
         // 방법1. 이중 포문 사용
         int maxSum = 0;
-        for (int i=0; i<numbers1.size(); i++) {
-            for (int j=0; j<numbers2.size(); j++) {
+        for (int i = 0; i < numbers1.size(); i++) {
+            for (int j = 0; j < numbers2.size(); j++) {
                 maxSum = Math.max(numbers1.get(i) * numbers2.get(j), maxSum);
             }
         }
