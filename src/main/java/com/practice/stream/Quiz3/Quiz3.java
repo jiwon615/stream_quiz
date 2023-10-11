@@ -39,7 +39,14 @@ public class Quiz3 {
                 maxSum = Math.max(numbers1.get(i) * numbers2.get(j), maxSum);
             }
         }
-        return maxSum;
+
+        // 방법2. Stream API 사용
+        return numbers1.stream()
+                .flatMap(
+                        i -> numbers2.stream().map(j -> new Integer[]{i, j})
+                ).mapToInt(n -> n[0] * n[1])
+                .max()
+                .orElse(0);
     }
 
 }
