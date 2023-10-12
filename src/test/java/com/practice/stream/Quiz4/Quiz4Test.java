@@ -1,5 +1,6 @@
 package com.practice.stream.Quiz4;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,6 +10,7 @@ class Quiz4Test {
     private final Answer4 answer = new Answer4();
     private final Quiz4 quiz = new Quiz4();
 
+    @DisplayName("4.1 2020년에 일어난 모든 거래 내역을 찾아 거래값을 기준으로 오름차순 정렬하라.")
     @Test
     void quiz1() {
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
