@@ -16,6 +16,7 @@ class Quiz4Test {
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
+    @DisplayName("4.2 거래 내역이 있는 거래자가 근무하는 모든 도시를 중복 없이 나열하라.")
     @Test
     void quiz2() {
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
