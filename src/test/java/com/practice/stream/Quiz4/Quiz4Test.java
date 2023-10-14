@@ -22,6 +22,7 @@ class Quiz4Test {
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
+    @DisplayName("4.3 서울에서 근무하는 모든 거래자를 찾아서 이름순서대로 정렬하라.")
     @Test
     void quiz3() {
         assertThat(quiz.quiz3()).isEqualTo(answer.quiz3());
