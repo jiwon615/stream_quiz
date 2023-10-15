@@ -59,7 +59,13 @@ public class Quiz4 {
 
     // 4.4 모든 거래자의 이름을 구분자(",")로 구분하여 정렬하라.
     public String quiz4() {
-        return null;
+        String result = transactions.stream()
+                .map(Transaction::getTrader)
+                .map(Trader::getName)
+                .distinct()
+                .sorted()
+                .collect(Collectors.joining(","));
+        return result;
     }
 
     // 4.5 부산에 거래자가 있는지를 확인하라.

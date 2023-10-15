@@ -28,8 +28,10 @@ class Quiz4Test {
         assertThat(quiz.quiz3()).isEqualTo(answer.quiz3());
     }
 
+    @DisplayName("4.4 모든 거래자의 이름을 구분자(\",\")로 구분하여 정렬하라.")
     @Test
     void quiz4() {
+        // Hwan,Hyuk,Kyu,Ming
         assertThat(quiz.quiz4()).isEqualTo(answer.quiz4());
     }
 
