@@ -35,6 +35,7 @@ class Quiz4Test {
         assertThat(quiz.quiz4()).isEqualTo(answer.quiz4());
     }
 
+    @DisplayName("4.5 부산에 거래자가 있는지를 확인하라.")
     @Test
     void quiz5() {
         assertThat(quiz.quiz5()).isEqualTo(answer.quiz5());
