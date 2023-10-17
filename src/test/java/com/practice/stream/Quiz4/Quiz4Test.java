@@ -38,11 +38,14 @@ class Quiz4Test {
     @DisplayName("4.5 부산에 거래자가 있는지를 확인하라.")
     @Test
     void quiz5() {
+        // true
         assertThat(quiz.quiz5()).isEqualTo(answer.quiz5());
     }
 
+    @DisplayName("4.6 서울에 거주하는 거래자의 모든 거래 금액을 구하라.")
     @Test
     void quiz6() {
+        // [30000, 12000, 5900]
         assertThat(quiz.quiz6()).isEqualTo(answer.quiz6());
     }
 
