@@ -49,8 +49,10 @@ class Quiz4Test {
         assertThat(quiz.quiz6()).isEqualTo(answer.quiz6());
     }
 
+    @DisplayName("4.7 모든 거래 내역중에서 거래 금액의 최댓값과 최솟값을 구하라. 단, 최댓값은 reduce를 이용하고 최솟값은 stream의 min()을 이용하라.")
     @Test
     void quiz7() {
+        // [40000, 4900]
         assertThat(quiz.quiz7()).isEqualTo(answer.quiz7());
     }
 
