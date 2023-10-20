@@ -1,5 +1,6 @@
 package com.practice.stream.Quiz5;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -14,8 +15,10 @@ class Quiz5Test {
     private final Answer5 answer = new Answer5();
     private final Quiz5 quiz = new Quiz5();
 
+    @DisplayName("5.1 모든 문자열의 길이를 더한 결과를 출력하여라.")
     @Test
     void quiz1() {
+        // 10
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
