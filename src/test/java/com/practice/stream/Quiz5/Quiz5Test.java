@@ -22,8 +22,10 @@ class Quiz5Test {
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
+    @DisplayName(" 5.2 문자열 중에서 가장 긴 것의 길이를 출력하시오.")
     @Test
     void quiz2() {
+        // 4
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
