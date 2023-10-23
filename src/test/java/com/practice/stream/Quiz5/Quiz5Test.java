@@ -29,6 +29,7 @@ class Quiz5Test {
         assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
+    @DisplayName("5.3 임의의 로또번호(1~45)를 정렬해서 출력하시오.")
     @Test
     void quiz3() {
         assertThat(isCorrect(quiz.quiz3())).isTrue();
