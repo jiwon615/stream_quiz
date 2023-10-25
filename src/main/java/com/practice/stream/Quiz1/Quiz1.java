@@ -12,12 +12,24 @@ import java.util.stream.Collectors;
 public class Quiz1 {
 
     // 1.1 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
-    public Map<String, Long> quiz1() throws IOException, CsvException {
+    public Map<String, Long> quiz1_1() throws IOException, CsvException {
         List<String[]> csvLines = CSVUtil.readCsvLines();
         Map<String, Long> result = csvLines.stream()
                 .map(line -> line[1].replaceAll("\\s", "")) // String[] -> String
                 .flatMap(i -> Arrays.stream(i.split(":"))) // : 기준으로 모두 split
                 .collect(Collectors.groupingBy(String::toString, Collectors.counting()));
+
+        return result;
+    }
+
+    // 1.1 (Map<Sgring, Integer로 반환) 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
+    public Map<String, Integer> quiz1() throws IOException, CsvException {
+        List<String[]> csvLines = CSVUtil.readCsvLines();
+        Map<String, Integer> result = csvLines.stream()
+                .map(line -> line[1].replaceAll("\\s", ""))
+                .flatMap(hobbies -> Arrays.stream(hobbies.split(":")))
+//                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, (oldVal, newVal) -> oldVal + newVal));
+                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum));
 
         return result;
     }

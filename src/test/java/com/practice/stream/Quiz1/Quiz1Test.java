@@ -26,8 +26,8 @@ class Quiz1Test {
         // 개발 3
         // 피아노 1
         // 스포츠댄스 1
-        Map<String, Long> result = quiz.quiz1();
-        log.info(String.valueOf(result));
+
+        assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 
     @Test
