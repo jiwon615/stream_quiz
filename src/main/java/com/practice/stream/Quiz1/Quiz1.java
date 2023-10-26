@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 
 public class Quiz1 {
 
-    // 1.1 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
-    public Map<String, Long> quiz1_1() throws IOException, CsvException {
+    // 1.1 방식1 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
+    public Map<String, Long> quiz1_firstTry() throws IOException, CsvException {
         List<String[]> csvLines = CSVUtil.readCsvLines();
         Map<String, Long> result = csvLines.stream()
                 .map(line -> line[1].replaceAll("\\s", "")) // String[] -> String
@@ -22,7 +22,7 @@ public class Quiz1 {
         return result;
     }
 
-    // 1.1 (Map<Sgring, Integer로 반환) 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
+    // 1.1 방식2 각 취미를 선호하는 인원이 몇 명인지 계산하여라.
     public Map<String, Integer> quiz1() throws IOException, CsvException {
         List<String[]> csvLines = CSVUtil.readCsvLines();
         Map<String, Integer> result = csvLines.stream()
@@ -34,14 +34,25 @@ public class Quiz1 {
         return result;
     }
 
-    // 1.2 정씨 성을 갖는 인원들이 갖는 각 취미 별 수를 계산하여라.
-    public Map<String, Long> quiz2() throws IOException, CsvException {
+    // 1.2 방식1 정씨 성을 갖는 인원들이 갖는 각 취미 별 수를 계산하여라.
+    public Map<String, Long> quiz2_firstTry() throws IOException, CsvException {
         List<String[]> csvLines = CSVUtil.readCsvLines();
         Map<String, Long> result = csvLines.stream()
                 .filter(line -> line[0].startsWith("정"))
                 .map(line -> line[1].replaceAll("\\s", ""))
                 .flatMap(i -> Arrays.stream(i.split(":")))
                 .collect(Collectors.groupingBy(String::toString, Collectors.counting()));
+        return result;
+    }
+
+    // 1.2 방식2 정씨 성을 갖는 인원들이 갖는 각 취미 별 수를 계산하여라.
+    public Map<String, Integer> quiz2() throws IOException, CsvException {
+        List<String[]> csvLines = CSVUtil.readCsvLines();
+        Map<String, Integer> result = csvLines.stream()
+                .filter(line -> line[0].startsWith("정"))
+                .map(line -> line[1].replaceAll("\\s", ""))
+                .flatMap(hobby -> Arrays.stream(hobby.split(":")))
+                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum));
         return result;
     }
 

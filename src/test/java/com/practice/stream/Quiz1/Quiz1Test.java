@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,9 +32,8 @@ class Quiz1Test {
     @Test
     @DisplayName("1.2 정씨 성을 갖는 인원들이 갖는 각 취미 별 수를 계산하여라.")
     void quiz2() throws IOException, CsvException {
-        Map<String, Long> result = quiz.quiz2();
-        log.info(String.valueOf(result));
-//        assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
+        // {"개발"=2, "농구"=1, "당구"=1, "축구"=2}
+        assertThat(quiz.quiz2()).isEqualTo(answer.quiz2());
     }
 
     @DisplayName("1.3 소개 내용에 '좋아'가 몇번 등장하는지 계산하여라.")
