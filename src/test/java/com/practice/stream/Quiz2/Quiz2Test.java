@@ -13,6 +13,7 @@ class Quiz2Test {
     @DisplayName("2.1 List에 저장된 단어들의 접두사가 각각 몇개씩 있는지 Map<String, Integer>으로 변환하여라.")
     @Test
     void quiz1() {
+        // {"B"=1, "K"=1, "T"=1, "X"=1, "a"=2, "h"=1, "n"=1}
         assertThat(quiz.quiz1()).isEqualTo(answer.quiz1());
     }
 

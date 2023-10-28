@@ -1,7 +1,6 @@
 package com.practice.stream.Quiz2;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -14,7 +13,7 @@ public class Quiz2 {
     // ex) ("T", 1), ("a", 2) ...
     public Map<String, Integer> quiz1() {
         Map<String, Integer> result = WORDS.stream()
-                .collect(Collectors.groupingBy(i -> String.valueOf(i.charAt(0)), Collectors.summingInt(i -> 1)));
+                .collect(Collectors.groupingBy(word -> String.valueOf(word.charAt(0)), Collectors.summingInt(word -> 1)));
         return result;
     }
 
