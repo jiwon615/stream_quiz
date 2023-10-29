@@ -10,7 +10,8 @@ import java.util.List;
 public class CSVUtil {
 
     public static List<String[]> readCsvLines() throws IOException, CsvException {
-        CSVReader csvReader = new CSVReader(new FileReader(CSVUtil.class.getResource("/user.csv").getFile()));
+        String fileName = CSVUtil.class.getResource("/user.csv").getFile();
+        CSVReader csvReader = new CSVReader(new FileReader(fileName));
         csvReader.readNext();
         return csvReader.readAll();
     }
