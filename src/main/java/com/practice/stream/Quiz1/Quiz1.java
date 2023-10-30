@@ -52,6 +52,7 @@ public class Quiz1 {
                 .filter(line -> line[0].startsWith("정"))
                 .map(line -> line[1].replaceAll("\\s", ""))
                 .flatMap(hobby -> Arrays.stream(hobby.split(":")))
+//                .collect(Collectors.toMap(Function.identity(), hobby -> 1, Integer::sum));
                 .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum));
         return result;
     }
