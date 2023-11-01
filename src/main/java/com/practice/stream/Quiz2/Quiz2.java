@@ -12,8 +12,13 @@ public class Quiz2 {
     // 2.1 방식1 List에 저장된 단어들의 접두사가 각각 몇개씩 있는지 Map<String, Integer>으로 변환하여라.
     // ex) ("T", 1), ("a", 2) ...
     public Map<String, Integer> quiz1() {
+        // 방식1 (Collectors.summingInt())
         Map<String, Integer> result = WORDS.stream()
                 .collect(Collectors.groupingBy(word -> String.valueOf(word.charAt(0)), Collectors.summingInt(word -> 1)));
+
+        // 방식2 (Collectors.counting())
+        Map<String, Long> result2 = WORDS.stream()
+                .collect(Collectors.groupingBy(key -> key.substring(0, 1), Collectors.counting()));
         return result;
     }
 

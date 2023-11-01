@@ -33,7 +33,12 @@ public class Quiz1 {
 //                .collect(Collectors.toMap(Function.identity(), hobby -> 1, Integer::sum));
                 .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum));
 
-        return result;
+        Map<String, Integer> result2 = csvLines.stream()
+                .map(line -> line[1].replaceAll("\\s", "")) // String[] -> String
+                .flatMap(i -> Arrays.stream(i.split(":"))) // : 기준으로 모두 split
+                .collect(Collectors.groupingBy(String::toString, Collectors.summingInt(val -> 1)));
+
+        return result2;
     }
 
     // 1.2 방식1 정씨 성을 갖는 인원들이 갖는 각 취미 별 수를 계산하여라.
