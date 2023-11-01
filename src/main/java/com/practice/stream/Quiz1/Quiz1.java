@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Quiz1 {
@@ -18,7 +19,6 @@ public class Quiz1 {
                 .map(line -> line[1].replaceAll("\\s", "")) // String[] -> String
                 .flatMap(i -> Arrays.stream(i.split(":"))) // : 기준으로 모두 split
                 .collect(Collectors.groupingBy(String::toString, Collectors.counting()));
-
         return result;
     }
 
@@ -29,6 +29,8 @@ public class Quiz1 {
                 .map(line -> line[1].replaceAll("\\s", ""))
                 .flatMap(hobbies -> Arrays.stream(hobbies.split(":")))
 //                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, (oldVal, newVal) -> oldVal + newVal));
+//                .collect(Collectors.toMap(String::toString, hobby -> 1, Integer::sum));
+//                .collect(Collectors.toMap(Function.identity(), hobby -> 1, Integer::sum));
                 .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum));
 
         return result;
